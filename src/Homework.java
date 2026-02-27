@@ -20,7 +20,7 @@ public class Homework {
                 }
             }
             String f = Img(m);
-            //System.out.println(f);
+            System.out.println(f);
         }
         else if(type.equals("circle")){
             int c[][] = new int[n][n];
@@ -39,7 +39,7 @@ public class Homework {
                 }
             }
             String p = Img(m);
-            //System.out.println(p);
+            System.out.println(p);
         }
         else{
             System.out.println("No known type");
