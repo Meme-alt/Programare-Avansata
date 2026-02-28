@@ -1,4 +1,6 @@
-public class Main{
+package Lab1;
+
+public class Main {
     public static void main(String[] args){
         String[] languages = {"C", "C++", "C#", "Python", "Go", "Rust", "JavaScript", "PHP", "Swift", "Java"};
         int n = (int) (Math.random() * 1_000_000);
