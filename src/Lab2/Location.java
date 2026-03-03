@@ -1,6 +1,6 @@
 package Lab2;
 
-public class Location {
+public abstract sealed class Location permits city, airport, GasStation {
     private String name;
     private float x;
     private float y;
