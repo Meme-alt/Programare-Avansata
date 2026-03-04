@@ -1,5 +1,8 @@
 package Lab2;
 
+/**
+ * represents a road a link between 2 different locations that has a name, length, speedLimit and endPoint
+ */
 public class Road{
     private String name;
     private Roadtype type;
@@ -16,6 +19,10 @@ public class Road{
         this.startingPoint = startingPoint;
         this.endPoint = endPoint;
     }
+
+    /**
+     * getters and setters
+     */
     public String getName(){ return name; }
     public Roadtype getType(){ return type; }
     public float getLength(){ return length; }

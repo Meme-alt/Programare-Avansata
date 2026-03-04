@@ -1,9 +1,16 @@
 package Lab2;
 
+/**
+ * represents a location that has a name and a space location that is determined by the x and y coordinates
+ */
 public abstract sealed class Location permits city, airport, GasStation {
     private String name;
     private float x;
     private float y;
+
+    /**
+     * constructors getters and setters
+     */
     public Location(){ };
     public Location(String name, float x, float y){
         this.name = name;
