@@ -186,4 +186,7 @@ public class Problem {
         }
         return minIndex;
     }
+    public Location[] getLocations(){
+        return locations;
+    }
 }
