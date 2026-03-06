@@ -1,5 +1,8 @@
 package Lab2;
 
+/**
+ * a type of location that has the variable population
+ */
 public final class city extends Location {
     private int population;
     public city(){

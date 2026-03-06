@@ -1,5 +1,8 @@
 package Lab2;
 
+/**
+ * contains result such as if a place is reachable and the path to do so
+ */
 public class Solution {
     private Location[] path;
     private int size;

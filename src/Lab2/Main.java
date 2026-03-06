@@ -2,8 +2,8 @@ package Lab2;
 
 public class Main {
     public static void main(String[] args){
-        int nr_loc = 500;
-        int nr_roads = 3000;
+        int nr_loc = 1000;
+        int nr_roads = 5000;
         Problem test = new Problem(nr_loc, nr_roads);
         generate(test, nr_loc, nr_roads);
         System.gc();
@@ -14,7 +14,7 @@ public class Main {
         long runningTime = System.currentTimeMillis() - initialTime;
         long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
         long memoryIncrease = usedMemoryAfter - usedMemoryBefore;
-        System.out.println("Time: "+ runningTime);
+        System.out.println("Time: " + runningTime);
         System.out.println("Memory increase: " + memoryIncrease);
     }
     public static void generate(Problem p, int nr_loc, int nr_roads){

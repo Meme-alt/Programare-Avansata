@@ -1,5 +1,8 @@
 package Lab2;
 
+/**
+ * a type of location that has the variable price
+ */
 public final class GasStation extends Location {
     private int gas_price;
     public GasStation(){

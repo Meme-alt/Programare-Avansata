@@ -1,5 +1,8 @@
 package Lab2;
 
+/**
+ * a type of location that has the variable nr_terminals
+ */
 public final class airport extends Location{
     private int nr_terminals;
     public airport(){

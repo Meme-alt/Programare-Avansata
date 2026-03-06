@@ -1,5 +1,8 @@
 package Lab2;
 
+/**
+ * contains most of what is neccesary to solve a problem such as the dfs algorithm and Dijkastra's algorithm
+ */
 public class Problem {
     private Location[] locations;
     private Road[] roads;
