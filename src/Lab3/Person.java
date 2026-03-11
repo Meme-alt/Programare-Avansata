@@ -14,7 +14,10 @@ public class Person implements Profile, Comparable<Profile>{
         this.birthdate = birthdate;
     }
     public void addRelationship(Profile profile, String type){
-        relationships.put(profile, type);
+        this.relationships.put(profile, type);
+        if(!profile.getRelationships().containsKey(this)){
+            profile.addRelationship(this, type);
+        }
     }
     @Override
     public String getName(){ return name; }
@@ -30,7 +33,11 @@ public class Person implements Profile, Comparable<Profile>{
     public String toString(){
         return "Person: " + name + "(ID: " + id + ", birthday: " + birthdate + ")";
     }
+    @Override
     public int importance(){
         return relationships.size();
+    }
+    public Map<Profile, String> getRelationships(){
+        return this.relationships;
     }
 }

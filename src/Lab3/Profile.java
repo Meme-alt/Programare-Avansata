@@ -1,4 +1,5 @@
 package Lab3;
+import java.util.Map;
 
 public interface Profile extends Comparable<Profile> {
     String getName();
@@ -7,4 +8,5 @@ public interface Profile extends Comparable<Profile> {
     void setID(int id);
     void addRelationship(Profile profile, String type);
     int importance();
+    Map<Profile, String> getRelationships();
 }
