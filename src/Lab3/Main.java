@@ -1,6 +1,7 @@
 package Lab3;
 
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args){
@@ -18,6 +19,14 @@ public class Main {
         System.out.println("Disconect Points: ");
         for(Profile p : disconectPoints){
             System.out.println(p.getName());
+        }
+        System.out.println("\nMaximal Parts: ");
+        List<Set<Profile>> maximalParts = network.findMaximalParts();
+        for(Set<Profile> comp : maximalParts){
+            for(Profile p : comp){
+                System.out.println(p.getName() + " ");
+            }
+            System.out.println();
         }
     }
 }
