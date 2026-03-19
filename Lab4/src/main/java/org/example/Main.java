@@ -4,8 +4,6 @@ import java.util.*;
 import java.util.stream.IntStream;
 import com.github.javafaker.Faker;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
         Random rand = new Random();
@@ -44,5 +42,39 @@ public class Main {
         newCity.addStreet(new Street("Ring Road", 2500, nodes[0], nodes[9]));
         newCity.solution(3);
         newCity.CarRoute();
+        City city = generateCity(10, 15);
+        city.findCertainStreets(500);
+        city.solution(3);
+        city.CarRoute();
+    }
+    public static City generateCity(int nr_intersections, int nr_streets){
+        City city = new City("City");
+        Faker faker = new Faker();
+        Random rand = new Random();
+        List<Intersection> nodes = new ArrayList<>();
+        for(int i = 0; i < nr_intersections; i++){
+            Intersection node = new Intersection("v" + i, rand.nextInt(1000), rand.nextInt(1000));
+            nodes.add(node);
+            city.addIntersection(node);
+        }
+        int nr = 0;
+        for(int i = 0; i < nr_intersections - 1; i++){
+            Intersection a = nodes.get(i);
+            Intersection b = nodes.get(i + 1);
+            int length = (int) Math.ceil(a.distance(b));
+            city.addStreet(new Street(faker.address().streetName(), length, a, b));
+            nr++;
+        }
+        while(nr < nr_streets){
+            Intersection a = nodes.get(rand.nextInt(nr_intersections));
+            Intersection b = nodes.get(rand.nextInt(nr_intersections));
+            if(!a.equals(b)){
+                int length = (int) Math.ceil(a.distance(b));
+                city.addStreet(new Street(faker.address().streetName(), length, a, b));
+                nr++;
+            }
+        }
+        return city;
     }
 }
+
