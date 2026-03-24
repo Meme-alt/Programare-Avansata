@@ -1,6 +1,8 @@
-package Lab5;
+package org.example;
 
-public class Resource {
+import java.io.Serializable;
+
+public class Resource implements Serializable {
     private String id;
     private String title;
     private String location;
@@ -14,7 +16,7 @@ public class Resource {
         this.year = year;
         this.author = author;
     }
-    public String getID(){
+    public String getId(){
         return id;
     }
     public String getTitle(){
@@ -29,7 +31,7 @@ public class Resource {
     public String getAuthor(){
         return author;
     }
-    public void setID(String id){
+    public void setId(String id){
         this.id = id;
     }
     public void setTitle(String title){

@@ -1,4 +1,4 @@
-package Lab5;
+package org.example;
 
 public class Book extends Resource{
     public Book(){ }
