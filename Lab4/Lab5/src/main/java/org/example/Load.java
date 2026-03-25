@@ -15,6 +15,8 @@ public class Load extends Command {
             Catalog loaded_catalog = (Catalog) in.readObject();
             this.catalog.getResources().clear();
             this.catalog.getResources().addAll(loaded_catalog.getResources());
+        } catch(Exception ex){
+            throw new InvalidCatalogException(ex);
         }
     }
 }
