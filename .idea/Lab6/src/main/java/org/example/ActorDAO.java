@@ -6,26 +6,26 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-public class GenreDAO {
-    public void create(String name) throws SQLException {
+public class ActorDAO {
+    public void create(String name) throws SQLException{
         try(Connection con = DBconnection.getConnection();
-            PreparedStatement pstmt = con.prepareStatement("insert into genres (name) values (?) ON CONFLICT (name) DO NOTHING")){
+            PreparedStatement pstmt = con.prepareStatement("insert into actors (name) values (?)")){
             pstmt.setString(1, name);
             pstmt.executeUpdate();
         }
     }
-    public Integer findByName(String name) throws SQLException {
+    public Integer findByName(String name) throws SQLException{
         try (Connection con = DBconnection.getConnection();
-             PreparedStatement pstmt = con.prepareStatement("select id from genres where name = ?")) {
+             PreparedStatement pstmt = con.prepareStatement("select id from actors where name = ?")) {
             pstmt.setString(1, name);
             try (ResultSet rs = pstmt.executeQuery()) {
                 return rs.next() ? rs.getInt(1) : null;
             }
         }
     }
-    public String findById(int id) throws SQLException {
+    public String findById(int id) throws SQLException{
         try (Connection con = DBconnection.getConnection();
-             PreparedStatement pstmt = con.prepareStatement("select name from genres where id = ?")) {
+             PreparedStatement pstmt = con.prepareStatement("select name from actors where id = ?")) {
             pstmt.setInt(1, id);
             try (ResultSet rs = pstmt.executeQuery()) {
                 return rs.next() ? rs.getString(1) : null;

@@ -15,6 +15,7 @@ public class DatabaseSetup {
             DROP TABLE IF EXISTS movies CASCADE;
             DROP TABLE IF EXISTS actors CASCADE;
             DROP TABLE IF EXISTS genres CASCADE;
+            DROP VIEW IF EXISTS movie_report_view CASCADE;
 
             CREATE TABLE genres (
                 id SERIAL PRIMARY KEY,
@@ -40,6 +41,21 @@ public class DatabaseSetup {
                 actor_id INTEGER REFERENCES actors(id) ON DELETE CASCADE,
                 PRIMARY KEY (movie_id, actor_id)
             );
+
+            -- THIS IS THE NEW PART! It builds the view Java is looking for.
+            CREATE OR REPLACE VIEW movie_report_view AS
+            SELECT 
+                m.title,
+                m.release_date,
+                m.score,
+                g.name AS genre,
+                COALESCE(string_agg(a.name, ', '), 'No actors listed') AS actors
+            FROM movies m
+            LEFT JOIN genres g ON m.genre_id = g.id
+            LEFT JOIN movie_actors ma ON m.id = ma.movie_id
+            LEFT JOIN actors a ON ma.actor_id = a.id
+            GROUP BY m.id, m.title, m.release_date, m.score, g.name
+            ORDER BY m.score DESC;
         """;
         try{
             Connection connection = DriverManager.getConnection(url, user, password);
