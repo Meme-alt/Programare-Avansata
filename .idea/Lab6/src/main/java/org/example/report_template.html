@@ -1,11 +1,13 @@
-<tbody>
-<#list movies as movie>
-<tr>
-    <td>${movie.title}</td>
-    <td>${movie.releaseDate}</td>
-    <td>${movie.score}</td>
-    <td>${movie.genre}</td>
-    <td>${movie.actors}</td>
-</tr>
-</#list>
-</tbody>
+<table border="1">
+    <tbody>
+    <#list movies as movie>
+    <tr>
+        <td>${movie.title}</td>
+        <td>${movie.releaseDate}</td>
+        <td>${movie.score}</td>
+        <td>${movie.genre}</td>
+        <td>${movie.actors}</td>
+    </tr>
+    </#list>
+    </tbody>
+</table>

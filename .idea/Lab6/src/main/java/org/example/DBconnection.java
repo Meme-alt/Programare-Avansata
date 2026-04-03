@@ -32,4 +32,7 @@ public class DBconnection {
             dataSource.close();
         }
     }
+    public static HikariDataSource getDataSource(){
+        return dataSource;
+    }
 }
