@@ -1,13 +1,22 @@
 package com.example.Lab7_Springboot;
 
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Lab7SpringbootApplication {
+public class Lab7SpringbootApplication implements CommandLineRunner {
 
+	@Autowired
+	private Client client;
+	@Override
+	public void run(String... args) throws Exception{
+		client.runClient();
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(Lab7SpringbootApplication.class, args);
 	}
-
 }
+
