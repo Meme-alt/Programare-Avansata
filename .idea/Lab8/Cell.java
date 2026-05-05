@@ -1,6 +1,9 @@
 package org.example;
 
-public class Cell {
+import java.io.Serializable;
+
+public class Cell implements Serializable {
+    private static final long serialVersionUID = 1L;
     private int row, col;
     private boolean top = true, right = true, bottom = true, left = true;
     public Cell(int row, int col){
@@ -15,4 +18,6 @@ public class Cell {
     public void setBottom(boolean bottom) { this.bottom = bottom; }
     public boolean hasLeft() { return left; }
     public void setLeft(boolean left) { this.left = left; }
+    public int getRow(){ return row; }
+    public int getCol(){ return col; }
 }
